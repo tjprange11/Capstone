@@ -1,0 +1,140 @@
+﻿@model FoxAndHounds.Models.Availability
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Availability</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Monday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monday.AbleToWork)
+        </dd>
+
+        @if (Model.Monday.AbleToWork)
+            {
+
+            <dd>
+                @Html.DisplayFor(model => model.Monday.StartTime)
+            </dd>
+        }
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tuesday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tuesday.AbleToWork)
+        </dd>
+
+        @if (Model.Tuesday.AbleToWork)
+            {
+
+            <dd>
+                @Html.DisplayFor(model => model.Tuesday.StartTime)
+            </dd>
+
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wednesday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wednesday.AbleToWork)
+        </dd>
+
+        @if (Model.Wednesday.AbleToWork)
+            {
+
+            <dd>
+                @Html.DisplayFor(model => model.Wednesday.StartTime)
+            </dd>
+
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thursday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thursday.AbleToWork)
+        </dd>
+
+        @if (Model.Thursday.AbleToWork)
+            {
+
+            <dd>
+                @Html.DisplayFor(model => model.Thursday.StartTime)
+            </dd>
+
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Friday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Friday.AbleToWork)
+        </dd>
+
+        @if (Model.Friday.AbleToWork)
+            {
+
+            <dd>
+                @Html.DisplayFor(model => model.Friday.StartTime)
+            </dd>
+
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Saturday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Saturday.AbleToWork)
+        </dd>
+
+        @if (Model.Saturday.AbleToWork)
+            {
+
+            <dd>
+                @Html.DisplayFor(model => model.Saturday.StartTime)
+            </dd>
+
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sunday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sunday.AbleToWork)
+        </dd>
+
+        @if (Model.Sunday.AbleToWork)
+            {
+
+            <dd>
+                @Html.DisplayFor(model => model.Sunday.StartTime)
+            </dd>
+
+        }
+
+
+    </dl>
+   
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to Home", "Index", "Home")
+</p>

@@ -1,0 +1,96 @@
+﻿@model IEnumerable<IEnumerable<FoxAndHounds.Models.Employee>>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Schedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <p>Monday</p>
+        </dt>
+        @foreach(var employee in Model.ElementAt(0))
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => employee.FullName)
+            </dd>
+        }
+       <br />
+        <br />
+        <dt>
+            <p>Tuesday</p>
+        </dt>
+        @foreach (var employee in Model.ElementAt(1))
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => employee.FullName)
+            </dd>
+        }
+        <br />
+        <br />
+        <dt>
+            <p>Wednesday</p>
+        </dt>
+
+        @foreach (var employee in Model.ElementAt(2))
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => employee.FullName)
+            </dd>
+        }
+        <br />
+        <br />
+        <dt>
+            <p>Thursday</p>
+        </dt>
+        @foreach (var employee in Model.ElementAt(3))
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => employee.FullName)
+            </dd>
+        }
+        <br />
+        <br />
+        <dt>
+            <p>Friday</p>
+        </dt>
+        @foreach (var employee in Model.ElementAt(4))
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => employee.FullName)
+            </dd>
+        }
+        <br />
+        <br />
+        <dt>
+            <p>Saturday</p>
+        </dt>
+        @foreach (var employee in Model.ElementAt(5))
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => employee.FullName)
+            </dd>
+        }
+        <br />
+        <br />
+        <dt>
+            <p>Sunday</p>
+        </dt>
+        @foreach (var employee in Model.ElementAt(6))
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => employee.FullName)
+            </dd>
+        }
+
+        
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,50 @@
+﻿@model FoxAndHounds.Models.RequestOff
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RequestOff</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shift.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shift.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeAccepted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeAccepted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManagerAccepted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManagerAccepted)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
