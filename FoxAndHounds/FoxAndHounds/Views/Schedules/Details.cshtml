@@ -1,4 +1,4 @@
-﻿@model IEnumerable<IEnumerable<FoxAndHounds.Models.Employee>>
+﻿@model IEnumerable<IEnumerable<FoxAndHounds.Models.Shift>>
 
 @{
     ViewBag.Title = "Details";
@@ -6,91 +6,45 @@
 
 <h2>Details</h2>
 
-<div>
+
     <h4>Schedule</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            <p>Monday</p>
-        </dt>
-        @foreach(var employee in Model.ElementAt(0))
+    <table class="table">
+        <tr>
+            <th>
+                <p>Employee</p>
+            </th>
+            <th>
+                <p>Time</p>
+            </th>
+            <th>
+                <p>Job</p>
+            </th>
+            <th></th>
+        </tr>
+        @for (int i = 0; i < 7; i++)
         {
-            <dd>
-                @Html.DisplayFor(modelItem => employee.FullName)
-            </dd>
-        }
-       <br />
-        <br />
-        <dt>
-            <p>Tuesday</p>
-        </dt>
-        @foreach (var employee in Model.ElementAt(1))
-        {
-            <dd>
-                @Html.DisplayFor(modelItem => employee.FullName)
-            </dd>
-        }
-        <br />
-        <br />
-        <dt>
-            <p>Wednesday</p>
-        </dt>
+            foreach (var item in Model.ElementAt(i))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Employee.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartTime)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "ShiftDetails", new { id = item.Id }) |
+                        @if (User.IsInRole("Admin"))
+                    {
+                            @Html.ActionLink("Edit", "ShiftEdit", new { id = item.Id })
+                        }
 
-        @foreach (var employee in Model.ElementAt(2))
-        {
-            <dd>
-                @Html.DisplayFor(modelItem => employee.FullName)
-            </dd>
-        }
-        <br />
-        <br />
-        <dt>
-            <p>Thursday</p>
-        </dt>
-        @foreach (var employee in Model.ElementAt(3))
-        {
-            <dd>
-                @Html.DisplayFor(modelItem => employee.FullName)
-            </dd>
-        }
-        <br />
-        <br />
-        <dt>
-            <p>Friday</p>
-        </dt>
-        @foreach (var employee in Model.ElementAt(4))
-        {
-            <dd>
-                @Html.DisplayFor(modelItem => employee.FullName)
-            </dd>
-        }
-        <br />
-        <br />
-        <dt>
-            <p>Saturday</p>
-        </dt>
-        @foreach (var employee in Model.ElementAt(5))
-        {
-            <dd>
-                @Html.DisplayFor(modelItem => employee.FullName)
-            </dd>
-        }
-        <br />
-        <br />
-        <dt>
-            <p>Sunday</p>
-        </dt>
-        @foreach (var employee in Model.ElementAt(6))
-        {
-            <dd>
-                @Html.DisplayFor(modelItem => employee.FullName)
-            </dd>
+                    </td>
+                </tr>
+            }
         }
 
-        
-
-    </dl>
-</div>
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>

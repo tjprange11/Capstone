@@ -13,7 +13,7 @@ namespace FoxAndHounds.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201805251934050_database"; }
+            get { return "201807110759518_database"; }
         }
         
         string IMigrationMetadata.Source

@@ -20,6 +20,15 @@ namespace FoxAndHounds.Controllers
             var schedules = db.Schedules.Include(s => s.Friday).Include(s => s.Monday).Include(s => s.Saturday).Include(s => s.Sunday).Include(s => s.Thursday).Include(s => s.Tuesday).Include(s => s.Wednesday);
             return View(schedules.ToList());
         }
+        public ActionResult ShiftDetails(int id)
+        {
+            return RedirectToAction("Details", "Shifts", new { id = id });
+        }
+
+        public ActionResult ShiftEdit(int id)
+        {
+            return RedirectToAction("Edit", "Shifts", new { id = id });
+        }
 
         // GET: Schedules/Details/5
         public ActionResult Details(int? id)
@@ -33,7 +42,7 @@ namespace FoxAndHounds.Controllers
             {
                 return HttpNotFound();
             }
-            List<List<Employee>> days = new List<List<Employee>>();
+            List<List<Shift>> days = new List<List<Shift>>();
             var monday = db.WorkerScheduleDayJuction.Where(data => data.ScheduleDayId == schedule.MondayId).Select(data => data.WorkerId).ToList();
             days = doStuff(monday, days);
             var tuesday = db.WorkerScheduleDayJuction.Where(data => data.ScheduleDayId == schedule.TuesdayId).Select(data => data.WorkerId).ToList();
@@ -50,19 +59,14 @@ namespace FoxAndHounds.Controllers
             days = doStuff(sunday, days);
             return View(days);
         }
-        public List<List<Employee>> doStuff(IEnumerable<int> workers, List<List<Employee>> days)
+        public List<List<Shift>> doStuff(IEnumerable<int> workers, List<List<Shift>> days)
         {
             List<Shift> exps = new List<Shift>();
             foreach (int expo in workers)
             {
-                exps.Add(db.Shifts.Where(data => data.Id == expo).First());
+                exps.Add(db.Shifts.Where(data => data.Id == expo).Include(data => data.Employee).First());
             }
-            List<Employee> exs = new List<Employee>();
-            foreach (Shift ex in exps)
-            {
-                exs.Add(db.Employees.Where(data => data.Id == ex.EmployeeId).First());
-            }
-            days.Add(exs);
+            days.Add(exps);
             return days;
         }
 

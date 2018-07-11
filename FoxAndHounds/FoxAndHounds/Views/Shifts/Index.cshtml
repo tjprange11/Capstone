@@ -1,0 +1,40 @@
+﻿@model IEnumerable<FoxAndHounds.Models.Shift>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+               
+            }
+            @if (User.IsInRole("Employee"))
+            {
+                @Html.ActionLink("Switch", "SwitchCreate", new { id = item.Id })
+            }
+
+        </td>
+    </tr>
+}
+
+</table>

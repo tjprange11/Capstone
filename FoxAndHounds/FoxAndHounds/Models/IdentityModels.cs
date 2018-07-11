@@ -47,5 +47,8 @@ namespace FoxAndHounds.Models
         public DbSet<BusserScheduleDayJunction> BusserScheduleDayJunction { get; set; }
         public DbSet<DayOff> DaysOff { get; set; }
         public DbSet<RequestOff> RequestsOff { get; set; }
+        public DbSet<SwitchShift> SwitchShifts { get; set; }
+
+
     }
 }

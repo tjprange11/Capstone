@@ -209,12 +209,14 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RequestOffsController.cs" />
     <Compile Include="Controllers\SchedulesController.cs" />
+    <Compile Include="Controllers\ShiftsController.cs" />
+    <Compile Include="Controllers\SwitchShiftsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805251934050_database.cs" />
-    <Compile Include="Migrations\201805251934050_database.Designer.cs">
-      <DependentUpon>201805251934050_database.cs</DependentUpon>
+    <Compile Include="Migrations\201807110759518_database.cs" />
+    <Compile Include="Migrations\201807110759518_database.Designer.cs">
+      <DependentUpon>201807110759518_database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -238,6 +240,7 @@
     <Compile Include="Models\ShiftScheduleDayJunctions\FoodRunnerScheduleDayJunction.cs" />
     <Compile Include="Models\ShiftScheduleDayJunctions\HostScheduleDayJunction.cs" />
     <Compile Include="Models\ShiftScheduleDayJunctions\WorkerScheduleDayJunction.cs" />
+    <Compile Include="Models\SwitchShift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -289,6 +292,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\logo for website 2-1148x533.png" />
+    <Content Include="logo for website 2-1148x533.png" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -396,6 +401,17 @@
     <Content Include="Views\Bussers\Edit.cshtml" />
     <Content Include="Views\Bussers\Index.cshtml" />
     <Content Include="Views\AdminHome\Index.cshtml" />
+    <Content Include="Views\Shifts\Create.cshtml" />
+    <Content Include="Views\Shifts\Delete.cshtml" />
+    <Content Include="Views\Shifts\Details.cshtml" />
+    <Content Include="Views\Shifts\Edit.cshtml" />
+    <Content Include="Views\Shifts\Index.cshtml" />
+    <Content Include="Views\SwitchShifts\Create.cshtml" />
+    <Content Include="Views\SwitchShifts\Delete.cshtml" />
+    <Content Include="Views\SwitchShifts\Details.cshtml" />
+    <Content Include="Views\SwitchShifts\Edit.cshtml" />
+    <Content Include="Views\SwitchShifts\Index.cshtml" />
+    <Content Include="Views\SwitchShifts\ManagerIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -408,8 +424,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805251934050_database.resx">
-      <DependentUpon>201805251934050_database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807110759518_database.resx">
+      <DependentUpon>201807110759518_database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

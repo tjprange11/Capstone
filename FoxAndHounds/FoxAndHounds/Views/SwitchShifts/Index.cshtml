@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FoxAndHounds.Models.SwitchShift>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Shift.Employee.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shift.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeAccepted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ManagerAccepted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shift.Employee.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shift.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeAccepted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManagerAccepted)
+        </td>
+        <td>
+            @Html.ActionLink("Accept", "Accept", new { id=item.Id }) |
+          
+            @Html.ActionLink("Deny", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

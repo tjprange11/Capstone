@@ -35,8 +35,10 @@
                                 <li>@Html.ActionLink("Food Runners", "Index", "FoodRunners")</li>
                                 <li>@Html.ActionLink("Hosts", "Index", "Hosts")</li>
                                 <li>@Html.ActionLink("Bussers", "Index", "Bussers")</li>
+                                
                             </ul>
                         </li>
+                        <li>@Html.ActionLink("Switch Requests", "ManagerIndex", "SwitchShifts")</li>
 
 
                     }
@@ -45,6 +47,8 @@
                         <li>@Html.ActionLink("Availability", "LayoutDetails", "Availabilities")</li>
                         <li>@Html.ActionLink("Ask OFF", "Create", "DayOffs")</li>
                         <li>@Html.ActionLink("Coworkers", "Index", "Employees")</li>
+                        <li>@Html.ActionLink("My Schedule", "Index","Shifts")</li>
+                        <li>@Html.ActionLink("Requests", "Index", "SwitchShifts")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

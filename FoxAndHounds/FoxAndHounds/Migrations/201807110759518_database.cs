@@ -307,6 +307,22 @@ namespace FoxAndHounds.Migrations
                 .Index(t => t.SundayId);
             
             CreateTable(
+                "dbo.SwitchShifts",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ShiftId = c.Int(),
+                        EmployeeId = c.Int(nullable: false),
+                        EmployeeAccepted = c.Boolean(nullable: false),
+                        ManagerAccepted = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Employees", t => t.EmployeeId, cascadeDelete: true)
+                .ForeignKey("dbo.Shifts", t => t.ShiftId)
+                .Index(t => t.ShiftId)
+                .Index(t => t.EmployeeId);
+            
+            CreateTable(
                 "dbo.WorkerScheduleDayJunctions",
                 c => new
                     {
@@ -325,6 +341,8 @@ namespace FoxAndHounds.Migrations
         {
             DropForeignKey("dbo.WorkerScheduleDayJunctions", "WorkerId", "dbo.Shifts");
             DropForeignKey("dbo.WorkerScheduleDayJunctions", "ScheduleDayId", "dbo.ScheduleDays");
+            DropForeignKey("dbo.SwitchShifts", "ShiftId", "dbo.Shifts");
+            DropForeignKey("dbo.SwitchShifts", "EmployeeId", "dbo.Employees");
             DropForeignKey("dbo.Schedules", "WednesdayId", "dbo.ScheduleDays");
             DropForeignKey("dbo.Schedules", "TuesdayId", "dbo.ScheduleDays");
             DropForeignKey("dbo.Schedules", "ThursdayId", "dbo.ScheduleDays");
@@ -363,6 +381,8 @@ namespace FoxAndHounds.Migrations
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.WorkerScheduleDayJunctions", new[] { "ScheduleDayId" });
             DropIndex("dbo.WorkerScheduleDayJunctions", new[] { "WorkerId" });
+            DropIndex("dbo.SwitchShifts", new[] { "EmployeeId" });
+            DropIndex("dbo.SwitchShifts", new[] { "ShiftId" });
             DropIndex("dbo.Schedules", new[] { "SundayId" });
             DropIndex("dbo.Schedules", new[] { "SaturdayId" });
             DropIndex("dbo.Schedules", new[] { "FridayId" });
@@ -402,6 +422,7 @@ namespace FoxAndHounds.Migrations
             DropIndex("dbo.Availabilities", new[] { "MondayId" });
             DropIndex("dbo.Availabilities", new[] { "EmployeeId" });
             DropTable("dbo.WorkerScheduleDayJunctions");
+            DropTable("dbo.SwitchShifts");
             DropTable("dbo.Schedules");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.RequestOffs");
